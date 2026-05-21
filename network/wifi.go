@@ -16,17 +16,23 @@ import (
 )
 
 func Dot11Freq2Chan(freq int) int {
-	if freq <= 2472 {
+	switch {
+	case freq <= 2472:
 		return ((freq - 2412) / 5) + 1
-	} else if freq == 2484 {
+
+	case freq == 2484:
 		return 14
-	} else if freq >= 5035 && freq <= 5865 {
+
+	case freq >= 5035 && freq <= 5865:
 		return ((freq - 5035) / 5) + 7
-	} else if freq >= 5875 && freq <= 5895 {
+
+	case freq >= 5875 && freq <= 5895:
 		return 177
-	} else if freq >= 5955 && freq <= 7115 { // 6GHz
+
+	case freq >= 5955 && freq <= 7115: // 6GHz
 		return ((freq - 5955) / 5) + 1
 	}
+
 	return 0
 }
 
