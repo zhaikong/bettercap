@@ -18,3 +18,5 @@ stage/
 /can-data
 /test*.yml
 /zerochaos.js
+config.bat
+node_modules
